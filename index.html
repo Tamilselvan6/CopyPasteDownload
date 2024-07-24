@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copy Paste Download</title>
+    <script src="https://kit.fontawesome.com/0a682b9dd5.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="upload-container">
+        <div class="dashed-border" id="upload-area">
+            <h1>PASTE IMAGE TO DOWNLOAD</h2>
+            <div class="icon">
+                <i class="fa-solid fa-file-arrow-down"></i>
+            </div>
+        </div>
+        <button id="select-folder">Select Folder</button>
+        <p class="instructions">Use the <strong>CTRL+V</strong> key combination to paste an image from your clipboard, or drag and drop an image onto the area above.</p>
+        <div id="success-message" class="success-message">
+            <img src="tick.png" alt="Success Icon" class="tick-icon">
+            <span id="success-text">Image saved successfully!</span>
+        </div>
+        
+        <div class="icons">
+            <a href="info.html"><i class="fa-solid fa-circle-info"></i></a>
+            <a href="https://tamilselvan6.github.io/profolio/"><i class="fa-solid fa-circle-user"></i></a>
+            <a href="https://github.com/Tamilselvan6"><i class="fa-brands fa-github"></i></a>
+        </div>
+        <div id="image-preview" style="display:none;">
+            <img id="preview-img" src="" alt="Image Preview" />
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+body {
+    font-family: Arial, sans-serif;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #101010;
+    color: #ffffff;
+}
+
+.upload-container {
+    text-align: center;
+    border-radius: 12px;
+    padding: 30px;
+}
+
+.dashed-border {
+    border: 2px dashed #ffffff;
+    border-radius: 12px;
+    padding: 140px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    position: relative;
+    transition: border-color 0.3s;
+}
+
+.dashed-border:hover {
+    border-color: #cccccc;
+}
+
+.dashed-border p {
+    margin: 10px 0;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    margin-bottom: 20px;
+}
+.icons a {
+    color: #ffffff;
+    text-decoration: none; 
+}
+.icon i {
+    font-size: 60px;
+}
+
+.icons i:hover {
+    color: #007bff; /* Change color on hover */
+}
+
+
+button#select-folder {
+    background-color: #424242;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button#select-folder:hover {
+    background-color: #007bff;
+}
+
+.instructions {
+    font-size: 14px;
+    color: #cccccc;
+    margin-top: 20px;
+}
+
+.success-message {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    color: #28a745;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.tick-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+}
+
+.icons {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+/* Add styles for error message and image preview */
+
+.error-message {
+    display: none;
+    color: red;
+    text-align: center;
+    margin-top: 10px;
+}
+
+#image-preview {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#preview-img {
+    max-width: 100%;
+    height: auto;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: #fff;
+}
