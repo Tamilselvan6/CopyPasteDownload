@@ -37,22 +37,32 @@ document.addEventListener('DOMContentLoaded', function() {
         event.preventDefault();
         uploadArea.classList.remove('highlight'); // Remove highlight class when the file is dropped
         const files = event.dataTransfer.files;
+        let isValidFile = false;
         for (let file of files) {
             if (file.type.indexOf('image') !== -1) {
+                isValidFile = true;
                 const blob = file;
                 saveImage(blob, true);
             }
         }
+        if (!isValidFile) {
+            showErrorMessage("Please drop an image file only.");
+        }
     });
     
 
-    document.addEventListener('paste', async function(event) {
+    document.addEventListener('paste', async function (event) {
         const items = (event.clipboardData || event.originalEvent.clipboardData).items;
+        let isValidFile = false;
         for (let item of items) {
             if (item.type.indexOf('image') !== -1) {
+                isValidFile = true;
                 const blob = item.getAsFile();
                 await saveImage(blob, true);
             }
+        }
+        if (!isValidFile) {
+            showErrorMessage("Please Paste an image file only.");
         }
     });
 
@@ -109,6 +119,16 @@ document.addEventListener('DOMContentLoaded', function() {
         successMessage.style.display = 'flex';
         setTimeout(() => {
             successMessage.style.display = 'none';
+        }, 3000);
+    }
+    function showErrorMessage(message) {
+        const errorMessage = document.getElementById('error-message');
+        errorMessage.textContent = message;
+        errorMessage.style.display = 'block';
+
+        // Hide error after 3 seconds
+        setTimeout(() => {
+            errorMessage.style.display = 'none';
         }, 3000);
     }
 
