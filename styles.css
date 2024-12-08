@@ -24,6 +24,13 @@ body {
     transition: border-color 0.3s;
 }
 
+.dashed-border.highlight {
+    border-color: #007bff; /* Highlight color */
+    background-color: rgba(0, 123, 255, 0.1); /* Light blue background */
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+
 .dashed-border:hover {
     border-color: #cccccc;
 }
@@ -118,4 +125,14 @@ button#select-folder:hover {
     border-radius: 5px;
     padding: 5px;
     background-color: #fff;
+}
+#base-name {
+    margin-left: 10px;
+    padding: 8px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    background-color: #2b2b2b;
+    color: #ffffff;
+    font-size: 14px;
+    display: inline-block;
 }
