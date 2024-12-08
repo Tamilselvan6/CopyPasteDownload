@@ -137,6 +137,7 @@ button#select-folder:hover {
     display: inline-block;
 }
 
+
 .error-message {
     display: none;
     color: #ff4d4d; /* Red color for error */
@@ -144,4 +145,84 @@ button#select-folder:hover {
     margin-top: 10px;
     font-size: 14px;
     font-weight: bold;
+}
+
+
+/* Styles for smaller screens */
+@media (max-width: 768px) {
+    h1{
+        font-size: 28px;
+    }
+    .upload-container {
+        padding: 20px; /* Reduce padding for smaller screens */
+    }
+
+    .dashed-border {
+        padding: 100px; /* Adjust padding for better fit */
+    }
+
+    .dashed-border p {
+        font-size: 14px; /* Smaller font for instructions */
+    }
+
+    .icon i {
+        font-size: 50px; /* Resize icons for smaller screens */
+    }
+
+    button#select-folder {
+        margin: 10px;
+        padding: 8px 15px; /* Adjust button size */
+        font-size: 14px; /* Smaller font for buttons */
+    }
+
+    .instructions {
+        font-size: 12px; /* Adjust instruction font size */
+    }
+
+    .error-message, .success-message {
+        font-size: 12px; /* Adjust message font size */
+    }
+
+    #base-name {
+        margin-top: 10px;
+        font-size: 12px; /* Adjust input box font size */
+    }
+   
+    .icons {
+        gap: 10px; /* Reduce gap between icons */
+    }
+
+    .icons i {
+        font-size: 24px; /* Resize icons */
+    }
+}
+
+/* Styles for very small screens (mobile-first design) */
+@media (max-width: 480px) {
+    h1{
+        font-size:medium;
+    }
+    .dashed-border {
+        padding: 120px 80px;
+        margin: 10px;
+         /* Further reduce padding */
+    }
+
+    .icon i {
+        font-size: 40px; /* Smaller icon for mobile */
+    }
+
+    button#select-folder {
+        padding: 8px 10px;
+        font-size: 12px;
+        margin: 10px;
+    }
+
+    .instructions {
+        font-size: 10px;
+    }
+
+    .icons i {
+        font-size: 20px;
+    }
 }
