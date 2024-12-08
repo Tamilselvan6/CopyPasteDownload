@@ -136,3 +136,12 @@ button#select-folder:hover {
     font-size: 14px;
     display: inline-block;
 }
+
+.error-message {
+    display: none;
+    color: #ff4d4d; /* Red color for error */
+    text-align: center;
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: bold;
+}
