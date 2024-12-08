@@ -12,6 +12,9 @@ document.addEventListener('DOMContentLoaded', function() {
             directoryHandle = await window.showDirectoryPicker();
             folderName = directoryHandle.name;
             selectFolderButton.textContent = `Selected Folder: ${folderName}`;
+            
+            // Show the input box for the base name
+            document.getElementById('base-name').style.display = 'inline-block';
         } catch (err) {
             console.error('Error selecting folder:', err);
         }
@@ -23,25 +26,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
     uploadArea.addEventListener('dragover', (event) => {
         event.preventDefault();
-        uploadArea.classList.add('dragover');
+        uploadArea.classList.add('highlight'); // Add highlight class
     });
-
+    
     uploadArea.addEventListener('dragleave', () => {
-        uploadArea.classList.remove('dragover');
+        uploadArea.classList.remove('highlight'); // Remove highlight class
     });
-
-    uploadArea.addEventListener('drop', async (event) => {
+    
+    uploadArea.addEventListener('drop', (event) => {
         event.preventDefault();
-        uploadArea.classList.remove('dragover');
-
+        uploadArea.classList.remove('highlight'); // Remove highlight class when the file is dropped
         const files = event.dataTransfer.files;
         for (let file of files) {
             if (file.type.indexOf('image') !== -1) {
                 const blob = file;
-                await saveImage(blob, true);
+                saveImage(blob, true);
             }
         }
     });
+    
 
     document.addEventListener('paste', async function(event) {
         const items = (event.clipboardData || event.originalEvent.clipboardData).items;
@@ -56,14 +59,17 @@ document.addEventListener('DOMContentLoaded', function() {
     async function saveImage(blob, autoSave = false) {
         if (directoryHandle && autoSave) {
             try {
+                const baseNameInput = document.getElementById('base-name');
+                const baseName = baseNameInput.value || 'image'; // Default to 'image' if no name is entered
                 imageCount += 1;
-                const fileName = `image-${imageCount}.png`;
+                const fileName = `${baseName}-${imageCount}.png`;
+                
                 const fileHandle = await directoryHandle.getFileHandle(fileName, { create: true });
                 const writable = await fileHandle.createWritable();
                 
                 await writable.write(blob);
                 await writable.close();
-
+    
                 showSuccessMessage(`Image saved successfully as ${fileName} in the selected folder!`);
             } catch (err) {
                 console.error('Error saving image:', err);
@@ -73,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 alert('Your browser does not support the File System Access API.');
                 return;
             }
-
+    
             try {
                 const opts = {
                     suggestedName: 'image.png',
@@ -84,17 +90,16 @@ document.addEventListener('DOMContentLoaded', function() {
                         },
                     ],
                 };
-
+    
                 const fileHandle = await window.showSaveFilePicker(opts);
                 const writable = await fileHandle.createWritable();
                 
                 await writable.write(blob);
                 await writable.close();
-
+    
                 showSuccessMessage('Image saved successfully!');
             } catch (err) {
                 console.error('Error saving image:', err);
-                
             }
         }
     }
